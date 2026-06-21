@@ -44,6 +44,25 @@ const ObjectUseState_04 = () => {
             <br />
 
             <button onClick={handleClick}>ADD</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name:</th>
+                        <th>Email:</th>
+                        <th>Address:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {person.map((p, index) => (
+                        <tr key={index}>
+                            <td>{p.name}</td>
+                            <td>{p.email}</td>
+                            <td>{p.address}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </>
     )
 }
