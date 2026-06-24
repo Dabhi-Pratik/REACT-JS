@@ -36,16 +36,19 @@ const UseEffect_05 = () => {
                 </thead>
 
                 <tbody>
-                    {user.map((u) => (
-                        <tr key={u.id}>
-                            <td>{u.id}</td>
-                            <td>{u.name}</td>
-                            <td>{u.email}</td>
-                            <td>
-                                {u.address.street}
-                            </td>
-                        </tr>
-                    ))}
+                    {user.map((u) => {
+                        const { id, name, email, address: { city, street } } = u
+                        return (
+                            <tr key={id}>
+                                <td>{id}</td>
+                                <td>{name}</td>
+                                <td>{email}</td>
+                                <td>
+                                    {city},{street}
+                                </td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </>
