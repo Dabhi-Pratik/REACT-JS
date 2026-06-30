@@ -8,11 +8,13 @@ import Conditional_02 from './Conditional/Conditional_02'
 import Form_Using_Conditional from './Conditional/Form_Using_Conditional'
 import Uncontrolled_01 from './forms/Uncontrolled_01'
 import Controlled_02 from './forms/Controlled_02'
+import Validation_03 from './forms/Validation_03'
+import Formik_04 from './forms/Formik_04'
 
 const App = () => {
   return (
     <>
-      <OnClick_01 />
+      {/* <OnClick_01 />
       <br />
       <br />
       <br />
@@ -46,6 +48,15 @@ const App = () => {
       <br />
       <br />
       <Controlled_02 />
+      <br />
+      <br />
+      <br />
+      <br /> */}
+      {/* <Validation_03 />
+      <br />
+      <br />
+      <br /> */}
+      <Formik_04 />
     </>
   )
 }
