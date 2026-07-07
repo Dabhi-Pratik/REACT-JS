@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ListTodos = ({ todos, handleDelete, handleEdit }) => {
+const ListTodos = ({ todos, handleDelete, handleEdit, handleToggleTodo }) => {
     return (
         <>
 
@@ -8,6 +8,7 @@ const ListTodos = ({ todos, handleDelete, handleEdit }) => {
                 <thead>
                     <tr>
                         <th>id</th>
+                        <th>status</th>
                         <th>Task</th>
                         <th>Description</th>
                         <th colSpan={2}>Actions</th>
@@ -20,6 +21,7 @@ const ListTodos = ({ todos, handleDelete, handleEdit }) => {
                         return (
                             <tr key={t.id}>
                                 <td>{index + 1}</td>
+                                <td><input type="checkbox" checked={t.completed} onChange={() => handleToggleTodo(t.id)} /></td>
                                 <td>{t.task}</td>
                                 <td>{t.description}</td>
                                 <td><button onClick={() => handleEdit(t.id)} >Edit</button></td>
