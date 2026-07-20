@@ -1,17 +1,28 @@
 import { Form, Button, Col, InputGroup, Row } from "react-bootstrap";
 import * as formik from 'formik';
 import studentValidationSchema from "../../validation/studentValidationSchema";
+// import { addStudent } from "../../api/studentFetch";
+import { addStudent } from "../../api/studentAxiousFetch";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 function AddStudent() {
     const { Formik } = formik;
 
+    const navigate = useNavigate()
+
     return (
         <Formik
             validationSchema={studentValidationSchema}
-            onSubmit={(values, { resetForm }) => {
-                console.log("Form Data", values)
-                resetForm()
+            onSubmit={async (values, { resetForm }) => {
+                try {
+                    await addStudent(values);
+                    alert("Student Added Successfully!");
+                    resetForm();
+                    navigate("/")
+                } catch (err) {
+                    alert(err.message);
+                }
             }}
             initialValues={{
                 firstName: '',

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Alert, Table } from 'react-bootstrap'
 import students from '../../../utils/DummyStudentData'
 import StudentList from './StudentList'
-import { getStudent } from '../../api/studentFetch'
+// import { getStudent } from '../../api/studentFetch' 
+import { getStudent } from '../../api/studentAxiousFetch'
 import Spinner from 'react-bootstrap/Spinner';
 
 
