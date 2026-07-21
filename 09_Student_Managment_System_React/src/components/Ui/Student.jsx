@@ -73,6 +73,7 @@ const Student = () => {
                         <th>Email</th>
                         <th>Phone Number</th>
                         <th>Course</th>
+                        <th colSpan={2}>Action</th>
                     </tr>
                 </thead>
                 <tbody>
