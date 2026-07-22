@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 // import { deleteStudent } from "../../api/studentFetch";
 import { deleteStudent } from "../../api/studentAxiousFetch";
 import { Navigate, useNavigate } from "react-router-dom";
+import { editStudent } from "../../api/studentFetch";
 
 const StudentList = ({ student, index }) => {
 
@@ -23,6 +24,11 @@ const StudentList = ({ student, index }) => {
         }
     };
 
+    const handleEdit = () => {
+        navigate("/editStudent",{state:student})
+
+    }
+
     return (
         <tr>
             <td>{index + 1}</td>
@@ -32,7 +38,7 @@ const StudentList = ({ student, index }) => {
             <td>{student.phoneNumber}</td>
             <td>{student.course}</td>
             <td className="d-flex gap-4">
-                {<Button variant="warning">Edit</Button>}
+                {<Button variant="warning" onClick={handleEdit}>Edit</Button>}
                 {<Button variant="danger" onClick={() => handleDelete()}>Delete</Button>}
             </td>
         </tr>

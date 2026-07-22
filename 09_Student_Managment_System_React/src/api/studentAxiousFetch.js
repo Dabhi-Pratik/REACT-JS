@@ -35,3 +35,11 @@ export async function deleteStudent(id) {
     throw new Error(error.message);
   }
 }
+
+export async function editStudent(id, studentdata) {
+  try {
+    const res = await axios.put(`${BASE_URI}/update/${id}`, studentdata);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}

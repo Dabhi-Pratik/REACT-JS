@@ -7,6 +7,7 @@ import {
 import MainLayout from "./router/MainLayout";
 import Student from "./components/Ui/Student";
 import AddStudent from "./components/Ui/AddStudent";
+import EditStudent from "./components/Ui/EditStudent";
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,9 @@ const router = createBrowserRouter([
       }, {
         path: "Add",
         element: <AddStudent />
+      }, {
+        path: "editStudent",
+        element: <EditStudent />
       }
     ],
   },

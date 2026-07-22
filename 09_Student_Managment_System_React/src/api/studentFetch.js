@@ -55,3 +55,23 @@ export async function deleteStudent(id) {
     throw new Error(error.message);
   }
 }
+
+export async function editStudent(id, studentdata) {
+  try {
+    const res = await fetch(`${BASE_URI}/update/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(studentdata),
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to update student");
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
