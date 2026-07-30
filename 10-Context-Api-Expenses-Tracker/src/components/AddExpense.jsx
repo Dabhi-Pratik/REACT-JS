@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { ExpenseContext } from '../context/ExpenseContext'
 
 const AddExpense = () => {
+
+    const { AddExpense, editValue } = useContext(ExpenseContext)
 
     const [input, setInput] = useState({
         title: "",
@@ -11,7 +14,9 @@ const AddExpense = () => {
         date: "",
     })
 
-    const [expenseList, setExpenseList] = useState([])
+    useEffect(() => {
+        editValue ? setInput(editValue) : null
+    }, [editValue])
 
     const handleChange = (field, e) => {
         setInput((prev) => {
@@ -25,7 +30,7 @@ const AddExpense = () => {
     const hnadleSubmit = (e) => {
         e.preventDefault();
 
-        setExpenseList((prev) => [...prev, input])
+        AddExpense(input)
 
         setInput({
             title: "",
@@ -38,7 +43,7 @@ const AddExpense = () => {
         })
     }
 
-    console.log("data", expenseList)
+    // console.log("data", expenseList)
 
     return (
         <>
@@ -51,6 +56,21 @@ const AddExpense = () => {
                 <input type="text" placeholder='enter description' value={input.description} onChange={(e) => handleChange("description", e)} />
                 <br />
                 <br />
+                <label htmlFor="category" >Category:</label>
+                <select
+                    value={input.category}
+                    onChange={(e) => handleChange("category", e)}
+                >
+                    <option value="">Select Category</option>
+                    <option value="food">Food</option>
+                    <option value="general">General</option>
+                    <option value="travel">Travel</option>
+                    <option value="hospital">Hospital</option>
+                    <option value="school">School</option>
+                    <option value="other">Other</option>
+                </select>
+                <br />
+                <br />
                 <label htmlFor="amount" >Amount:</label>
                 <input type="number" value={input.amount} onChange={(e) => handleChange("amount", e)} />
                 <br />
@@ -59,20 +79,14 @@ const AddExpense = () => {
                 <input type="date" value={input.date} onChange={(e) => handleChange("date", e)} />
                 <br />
                 <br />
-                <select name="" id="" onChange={(e) => handleChange("category", e)}>
-                    <option value="food">Food</option>
-                    <option value="general">general</option>
-                    <option value="travel">travel</option>
-                    <option value="hospital">hospital</option>
-                    <option value="school">school</option>
-                    <option value="other">other</option>
-
-                </select>
-                <select name="" id="" onChange={(e) => handleChange("type", e)}>
+                <label htmlFor="type">Type</label>
+                <select value={input.type} onChange={(e) => handleChange("type", e)}>
                     <option value="debit">Debit</option>
                     <option value="credit">Credit</option>
                 </select>
-                <button type='submit'>Add</button>
+                <br />
+                <br />
+                <button type='submit'>{editValue ? "update" : "add"}</button>
             </form>
         </>
     )
