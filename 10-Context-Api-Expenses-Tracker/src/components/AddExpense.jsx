@@ -7,10 +7,10 @@ const AddExpense = () => {
 
     const [input, setInput] = useState({
         title: "",
-        category: "",
+        category: "General",
         description: "",
         amount: 0,
-        type: "",
+        type: "debit",
         date: "",
     })
 
