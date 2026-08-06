@@ -7,16 +7,16 @@ import Counter from './concept/counter'
 const App = () => {
   return (
     <>
- 
-    <Counter/>
 
-      {/* <AddExpense />
+      {/* <Counter/> */}
+
+      <AddExpense />
       <br />
       <br />
       <Expenses />
       <br />
       <br />
-      <ExpenseList /> */}
+      <ExpenseList />
     </>
   )
 }
