@@ -7,17 +7,34 @@ const Expenses = () => {
 
   return (
     <>
-      <Container className=" align-center ">
-        <h1>EXPENSE TRECAR</h1>
-        <Row>
-          <Col>
-            <h1>Credite:{credit}</h1>
-          </Col>
-        </Row>
+      <div className="card shadow p-5 m-3">
+        <h1 className="text-center mt-2">
+           Expense Tracker
+        </h1>
 
-        <h1>Debite: {debit}</h1>
-        <h1>Balance: {balance}</h1>
-      </Container>
+        <Container>
+          <Row>
+            <Col className="d-flex  gap-3 justify-content-center align-items-center mt-3">
+              <div className="card shadow p-4 d-flex justify-content-center align-items-center">
+                <h3>
+                  Credit
+                </h3>
+                <h1 className="text-success"> ₹ {credit}</h1>
+              </div>
+
+              <div className="card shadow p-4 d-flex justify-content-center align-items-center">
+                <h5>Debit</h5>
+                <h1 className="text-danger"> ₹ {debit}</h1>
+              </div>
+
+              <div className="card shadow p-4 d-flex justify-content-center align-items-center">
+                <h5>Balance</h5>
+                <h1 className="text-primary"> ₹ {balance}</h1>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };
